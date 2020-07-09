@@ -39,7 +39,7 @@ def signup(request):
 		elif password1 != password2:
 			messages.error(request,"Passwords Doesn't match. Please check.")
 			return redirect('signup')
-			
+
 		else:
 			myuser = User.objects.create_user(username,email,password1)
 			myuser.first_name = first_name
@@ -56,10 +56,15 @@ def login(request):
 		username = request.POST['username']
 		password = request.POST['password']
 
-		myuser = authenticate(username=username,password=password)
-		auth_login(request,myuser)
-		messages.success(request, 'Logged in successfully!')
-		return redirect('home')
+		if not User.objects.filter(username=username).exists():
+			messages.error(request,"Username or Password is incorrect. Please check.")
+			return redirect('login')
+
+		else:
+			myuser = authenticate(username=username,password=password)
+			auth_login(request,myuser)
+			messages.success(request, 'Logged in successfully!')
+			return redirect('home')
 
 	return render(request, 'musicbeats/login.html')
 

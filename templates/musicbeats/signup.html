@@ -1,6 +1,45 @@
 {% extends "musicbeats/base.html" %}
 {% load static %}
 {% block title %} <title>Signup </title>{% endblock %}		
-		
 	{% block content %}
+	<div class="container mt-3">
+		<h3 class="text-center">Signup</h3>
+
+	<form method="POST" action="signup">{% csrf_token %}
+	  <div class="form-group">
+	    <label>First Name</label>
+	    <input name="firstname" type="text" class="form-control" placeholder="First Name" required>
+	  </div>
+	  
+	  <div class="form-group">
+	    <label>Last Name</label>
+	    <input name="lastname" type="text" class="form-control" placeholder="Last Name" required>
+	  </div>
+	  
+	  <div class="form-group">
+	    <label>User Name</label>
+	    <input name="username" type="text" class="form-control" placeholder="User Name" required>
+	  </div>
+	  
+	  <div class="form-group">
+	    <label for="exampleInputEmail1">Email address</label>
+	    <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+	    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+	  </div>
+	  <div class="form-group">
+	    <label for="exampleInputPassword1">Password</label>
+	    <input type="password" name="password1" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+	  </div>
+	  <div class="form-group">
+	    <label for="exampleInputPassword2">Confirm Password</label>
+	    <input type="password" name="password2" class="form-control" id="exampleInputPassword2" placeholder="Confirm Password" required>
+	  </div>
+	  <button type="submit" class="btn btn-primary">Signup</button>
+	  <br>
+	  <br>
+	</form>
+
+</div>
+
 	{% endblock content %}
+

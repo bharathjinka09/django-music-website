@@ -2,4 +2,21 @@
 {% load static %}
 {% block title %} <title>Login </title>{% endblock %}		
 	{% block content %}
+	<div class="container mt-3">
+		<h3 class="text-center">Login</h3>
+	<form method="POST" action="login">{% csrf_token %}
+	  <div class="form-group">
+	    <label>Username</label>
+	    <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+	  </div>
+	  <div class="form-group">
+	    <label for="password1">Password</label>
+	    <input type="password" name="password" class="form-control" placeholder="Password" required>
+	  </div>
+	  <button type="submit" class="btn btn-primary">Login</button>
+	</form>
+
+</div>
+
 	{% endblock content %}
+

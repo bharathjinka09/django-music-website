@@ -1,0 +1,25 @@
+{% extends "musicbeats/base.html" %}
+{% load static %}
+{% block title %}    <title>{{songpost.name}}</title> {% endblock %}		
+	
+
+	{% block content %}
+		<div class="container mt-3">
+			<div class="row">
+				<div class="col-md-4">
+				<div class="card" style="width: 18rem;">
+				  <img src="/{{songpost.image}}" class="card-img-top" alt="...">
+				  <div class="card-body">
+				    <h5 class="card-title">{{songpost.name}} - {{songpost.tags}}</h5>
+				    <p class="card-text">{{songpost.singer}}</p>
+				    <audio controls style="width:100%;">
+					  <source src="/{{songpost.song}}" type="audio/mpeg">
+					  Your browser does not support the audio element.
+					</audio>
+				  </div>
+				</div>
+				</div>
+			</div>
+		</div>
+
+	{% endblock content %}

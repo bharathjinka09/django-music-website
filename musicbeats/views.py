@@ -1,3 +1,11 @@
 from django.shortcuts import render
+from musicbeats.models import Song
 
-# Create your views here.
+def songs(request):
+	songs = Song.objects.all()
+	return render(request, 'musicbeats/index.html', {'songs':songs})
+
+def songpost(request,id):
+	songpost = Song.objects.get(song_id=id)
+	return render(request, 'musicbeats/songpost.html', {'songpost':songpost})
+

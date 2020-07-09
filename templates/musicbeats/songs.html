@@ -1,0 +1,30 @@
+{% extends "musicbeats/base.html" %}
+{% load static %}
+{% block title %} <title>All Songs </title>{% endblock %}		
+
+	
+
+	{% block content %}
+		<div class="container mt-3">
+			<div class="row">
+				{% for song in songs %}
+					<div class="pl-2">	
+						<div class="col-md-4">
+
+							<div class="card" style="width: 18rem;">
+							  <img src="/{{song.image}}" class="card-img-top" alt="...">
+							  <div class="card-body">
+							    <h5 class="card-title">{{song}}</h5>
+							    <p class="card-text">{{song.tags}}</p>
+							    <a href="/songs/{{song.song_id}}" class="btn btn-outline-primary">View</a>
+							  </div>
+							</div>
+							<br>
+							<br>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+
+	{% endblock content %}

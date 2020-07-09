@@ -12,8 +12,8 @@
 				  <div class="card-body">
 				    <h5 class="card-title">{{songpost.name}} - {{songpost.tags}}</h5>
 				    <p class="card-text">{{songpost.singer}}</p>
-				    <audio controls style="width:100%;">
-					  <source src="/{{songpost.song}}" type="audio/mpeg">
+				    <audio controls controlsList="nodownload" style="width:100%;">
+					  <source src="/{{songpost.song}}" type="audio/mp3">
 					  Your browser does not support the audio element.
 					</audio>
 				  </div>

@@ -3,6 +3,13 @@
 {% block title %} <title>Signup </title>{% endblock %}		
 	{% block content %}
 	<div class="container mt-3">
+		{% if messages %}
+		  <ul class="messages">
+		    {% for message in messages %}
+		      <li class="{{ message.tags }}">{{ message }}</li>
+		    {% endfor %}
+		  </ul>
+		{% endif %}
 		<h3 class="text-center">Signup</h3>
 
 	<form method="POST" action="signup">{% csrf_token %}
@@ -23,16 +30,16 @@
 	  
 	  <div class="form-group">
 	    <label for="exampleInputEmail1">Email address</label>
-	    <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+	    <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" autocomplete="username" placeholder="Enter email" required>
 	    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 	  </div>
 	  <div class="form-group">
 	    <label for="exampleInputPassword1">Password</label>
-	    <input type="password" name="password1" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+	    <input type="password" name="password1" class="form-control" autocomplete="new-password" id="password1" placeholder="Password" required>
 	  </div>
 	  <div class="form-group">
 	    <label for="exampleInputPassword2">Confirm Password</label>
-	    <input type="password" name="password2" class="form-control" id="exampleInputPassword2" placeholder="Confirm Password" required>
+	    <input type="password" name="password2" autocomplete="new-password" class="form-control" id="password2" placeholder="Confirm Password" required>
 	  </div>
 	  <button type="submit" class="btn btn-primary">Signup</button>
 	  <br>
@@ -40,6 +47,16 @@
 	</form>
 
 </div>
+
+<script type="text/javascript">
+	function passwordCheck(){
+		var password1 = document.querySelector('#password1')
+		var password2 = document.querySelector('#password2')
+		if(password1.value !== password2.value){
+			alert('Password doesnot matches')	
+		}
+	}
+</script>
 
 	{% endblock content %}
 
